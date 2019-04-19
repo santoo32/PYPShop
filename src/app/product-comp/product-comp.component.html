@@ -1,0 +1,16 @@
+<h1>Lista de productos</h1>
+<p>Message from parent: {{appChildMessage}}</p>
+<ul>
+  <li *ngIf = "listaproductos.length > 0 ; then productsTemplate else noProductsTemplate"></li>
+  <ng-template #productsTemplate> 
+    <li *ngFor = "let producto of listaproductos">
+      {{producto}} 
+      <button 
+      style="background-image: url(assets/greycircle.png)"
+      (click)= "anadiralcarro($event)">
+      + 
+      </button>
+    </li>  
+  </ng-template>
+  <ng-template #noProductsTemplate> Sin productos para mostrar</ng-template>
+</ul>>

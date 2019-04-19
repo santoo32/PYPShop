@@ -1,0 +1,16 @@
+<h1>Carrito de compras</h1>
+<ul>
+  <li *ngIf = "listadeproductos.length > 0 ; then productsTemplate else noProductsTemplate"></li>
+  <ng-template #productsTemplate> 
+    <li *ngFor = "let producto of listadeproductos">
+      {{producto}} 
+      <button>
+      -
+      </button>
+    </li> 
+    <button style="background-color:red" align="center">
+      Checkout  
+    </button>
+  </ng-template>
+  <ng-template #noProductsTemplate> No hay productos en el carrito </ng-template>
+</ul>>
