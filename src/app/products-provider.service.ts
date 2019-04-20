@@ -6,7 +6,7 @@ import { ProductCompComponent } from './product-comp/product-comp.component';
 })
 export class ProductsProviderService {
 
-  prod = ['p1', 'p2'];
+  prod = ['Zapatillas - $1000', 'Remera - $300', 'Buzo - $700', 'Gorra - $200'];
 
   getProductos() {
     return this.prod;

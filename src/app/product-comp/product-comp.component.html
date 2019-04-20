@@ -1,16 +1,18 @@
 <h1>Lista de productos</h1>
-<p>Message from parent: {{appChildMessage}}</p>
-<ul>
-  <li *ngIf = "listaproductos.length > 0 ; then productsTemplate else noProductsTemplate"></li>
+<ul class="list-group">
+  <li class="list-group-item" *ngIf = "listaproductos.length > 0 ; then productsTemplate else noProductsTemplate"></li>
   <ng-template #productsTemplate> 
-    <li *ngFor = "let producto of listaproductos">
+    <li class="list-group-item" *ngFor = "let producto of listaproductos">
       {{producto}} 
-      <button 
-      style="background-image: url(assets/greycircle.png)"
-      (click)= "anadiralcarro($event)">
-      + 
-      </button>
+      <div class="text-right">
+        <button 
+        type="button" class="btn btn-dark btn-sm"
+        (click)= "anadiralcarro(producto)">
+        + 
+        </button>
+      </div>
     </li>  
   </ng-template>
   <ng-template #noProductsTemplate> Sin productos para mostrar</ng-template>
+  <app-carrito-comp [parentData]="productosalcarro"> </app-carrito-comp>
 </ul>>

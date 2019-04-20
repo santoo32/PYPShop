@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ProductsProviderService } from '../products-provider.service';
 import { Input } from '@angular/core';
+import { CarritoCompComponent } from '../carrito-comp/carrito-comp.component';
+import { OutletContext } from '@angular/router';
 
 @Component({
   selector: 'app-product-comp',
@@ -12,15 +14,19 @@ export class ProductCompComponent implements OnInit {
   name: string;
   precio: number;
   listaproductos;
-  @Input() appChildMessage: string;
+  public productosalcarro = [];
+
 
 
   constructor(service: ProductsProviderService) {
     this.listaproductos = service.getProductos();
   }
 
-  anadiralcarro($event) {
-    console.log('boton apretado');
+
+
+  anadiralcarro(producto) {
+    this.productosalcarro.push(producto);
+
   }
 
 

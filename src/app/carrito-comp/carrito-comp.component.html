@@ -1,16 +1,26 @@
-<h1>Carrito de compras</h1>
-<ul>
-  <li *ngIf = "listadeproductos.length > 0 ; then productsTemplate else noProductsTemplate"></li>
-  <ng-template #productsTemplate> 
-    <li *ngFor = "let producto of listadeproductos">
-      {{producto}} 
-      <button>
-      -
-      </button>
-    </li> 
-    <button style="background-color:red" align="center">
-      Checkout  
-    </button>
-  </ng-template>
-  <ng-template #noProductsTemplate> No hay productos en el carrito </ng-template>
-</ul>>
+<h1>Carrito de compras</h1> 
+<ul class="list-group">
+  <li class="list-group-item" *ngIf = "parentData.length > 0 ; then productsTemplate else noProductsTemplate"></li>
+    <ng-template #productsTemplate> 
+      <li class="list-group-item" *ngFor = "let producto of parentData">
+        {{producto}} 
+        <div class="text-right">
+          <button 
+          type="button" class="btn btn-danger btn-sm"
+          (click)= "retirardelcarro(producto)">
+          - 
+          </button>
+        </div>
+      </li>  
+      <button 
+        type="button" class="btn btn-success"
+        (click) = checkout();
+        data-toggle="modal" data-target="#myModal"
+        >
+        Checkout 
+        </button>
+    </ng-template>
+    <ng-template #noProductsTemplate> No hay productos en el carrito </ng-template>
+</ul>
+
+

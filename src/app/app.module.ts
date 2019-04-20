@@ -7,6 +7,7 @@ import { ProductCompComponent } from './product-comp/product-comp.component';
 import { CarritoCompComponent } from './carrito-comp/carrito-comp.component';
 import { ProductsProviderService } from './products-provider.service';
 import { RouterModule } from '@angular/router';
+import { HomecompComponent } from './homecomp/homecomp.component';
 
 
 @NgModule({
@@ -14,14 +15,16 @@ import { RouterModule } from '@angular/router';
     AppComponent,
     ProductCompComponent,
     CarritoCompComponent,
+    HomecompComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    
 
     RouterModule.forRoot([
-      {path: '', component: ProductCompComponent},
+      {path: '', component: HomecompComponent},
       {path: 'carritodecompras', component: CarritoCompComponent},
       {path: '**', component: ProductCompComponent},
     ])
