@@ -9,6 +9,7 @@ import { ProductsProviderService } from './products-provider.service';
 import { RouterModule } from '@angular/router';
 import { HomecompComponent } from './homecomp/homecomp.component';
 import { FormsModule } from '@angular/forms';
+import { MessagepasserService } from './messagepasser.service';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { FormsModule } from '@angular/forms';
     ])
   ],
   providers: [
-    ProductsProviderService
+    ProductsProviderService,
+    MessagepasserService
   ],
   bootstrap: [AppComponent]
 })

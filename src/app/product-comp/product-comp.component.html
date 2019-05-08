@@ -3,7 +3,8 @@
   <li class="list-group-item" *ngIf = "listaproductos.length > 0 ; then productsTemplate else noProductsTemplate"></li>
   <ng-template #productsTemplate> 
     <li class="list-group-item" *ngFor = "let producto of listaproductos">
-      {{producto.name}} + {{producto.precio}} 
+      Nombre: {{producto.name}} <br>
+      Precio:  ${{producto.precio}} 
       <div class="text-right">
         <button 
         type="button" class="btn btn-dark btn-sm"
@@ -14,6 +15,4 @@
     </li>  
   </ng-template>
   <ng-template #noProductsTemplate> Sin productos para mostrar</ng-template>
-  
-  <app-carrito-comp [parentData]="productosalcarro"> </app-carrito-comp>
 </ul>>

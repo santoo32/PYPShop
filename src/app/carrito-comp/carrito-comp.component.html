@@ -3,7 +3,10 @@
   <li class="list-group-item" *ngIf = "parentData.length > 0 ; then productsTemplate else noProductsTemplate"></li>
     <ng-template #productsTemplate> 
       <li class="list-group-item" *ngFor = "let producto of parentData">
-        {{producto.name}} + {{producto.precio}} 
+        Nombre: {{producto.name}} <br>
+        Precio:  ${{producto.precio}} <br>
+          Cantidad:
+          
           <input type="number" [(ngModel)]="producto.cantidad">
 
 
