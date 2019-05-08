@@ -1,25 +1,6 @@
 import { Component, OnInit, Input, Inject} from '@angular/core';
-//import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-
-/*export interface DialogData {
-  listadeproductos: [];
-}
-
-@Component({
-  selector: 'dialog-overview-example-dialog',
-  templateUrl: 'dialog-overview-example-dialog.html',
-})
-export class DialogOverviewExampleDialog {
-
-  constructor(
-    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
-}*/
+import { ProductCompComponent } from '../product-comp/product-comp.component';
+import { producto } from '../product-comp/claseproducto';
 
 @Component({
   selector: 'app-carrito-comp',
@@ -30,22 +11,36 @@ export class CarritoCompComponent implements OnInit {
 
 
   listadeproductos = [ 'P1 '];
-  @Input() public parentData;
+  total: number = 0;
+  @Input() public parentData: producto [];
 
   retirardelcarro(producto) {
-    this.parentData.pop();
+    
+    this.parentData.splice(this.parentData.indexOf(producto), 1);
+
   }
 
   checkout() {
-    /*const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-      width: '250px',
-      data: {prod: this.listadeproductos}
-    });*/
-  }
-  constructor() { }
 
-  ngOnInit() {
+    alert('Confirmada su compra de ' + this.parentData.length + ' elementos');
+
   }
+  constructor() {
+   }
+
+  ngOnInit(): void {
+    this.parentData.push(new producto('bufanda', 100));
+  }
+
+  gettotal(): number{
+      this.total = 0;
+      this.parentData.map(producto => this.total += producto.precio*producto.cantidad);
+      return this.total;
+      
+  }
+
+
+
 }
 
 

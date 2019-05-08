@@ -8,6 +8,7 @@ import { CarritoCompComponent } from './carrito-comp/carrito-comp.component';
 import { ProductsProviderService } from './products-provider.service';
 import { RouterModule } from '@angular/router';
 import { HomecompComponent } from './homecomp/homecomp.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,9 +18,11 @@ import { HomecompComponent } from './homecomp/homecomp.component';
     CarritoCompComponent,
     HomecompComponent,
 
+
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     
 

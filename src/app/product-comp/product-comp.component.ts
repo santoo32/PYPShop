@@ -3,6 +3,7 @@ import { ProductsProviderService } from '../products-provider.service';
 import { Input } from '@angular/core';
 import { CarritoCompComponent } from '../carrito-comp/carrito-comp.component';
 import { OutletContext } from '@angular/router';
+import { producto } from './claseproducto';
 
 @Component({
   selector: 'app-product-comp',
@@ -13,7 +14,9 @@ export class ProductCompComponent implements OnInit {
 
   name: string;
   precio: number;
-  listaproductos;
+  
+
+  listaproductos: producto [];
   public productosalcarro = [];
 
 
